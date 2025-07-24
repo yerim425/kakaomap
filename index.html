@@ -44,6 +44,14 @@
 
                     var options={center: myPos, level:3};
                     var map = new kakao.maps.Map(container, options);
+
+                    // 내 위치에 마커 추가.
+                    var marker = new kakao.maps.marker({
+                        position: myPos
+                    });
+
+                    // 마커를 지도 위에 표시하기
+                    marker.setMap(map);
                 });
             }
         </script>
