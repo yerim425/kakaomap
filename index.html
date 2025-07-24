@@ -30,5 +30,22 @@
 
             var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
         </script>
+
+        <button onclick="aaa()">내 주변 지도 보기</button>
+        <script>
+            function aaa(){
+                // 내 위치 얻어오기
+                navigator.geolocation.getCurrentPosition(function(position){
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+
+                    // 내 취이정보를 카카오 좌표 객체로 생성
+                    var myPos = new kakao.maps.LatLng(lat, lng);
+
+                    var options={center: myPos, level:3};
+                    var map = new kakao.maps.Map(container, options);
+                });
+            }
+        </script>
     </body>
 </html>
